@@ -1,0 +1,7 @@
+[browser]
+default_workspace = "site"
+
+[browser.workspaces.site]
+root = "."
+base_url = "http://localhost:3001"
+device_preset = "desktop"
