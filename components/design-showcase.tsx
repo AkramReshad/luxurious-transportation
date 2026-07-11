@@ -47,7 +47,7 @@ function BrandLogo() {
         fill
         priority
         sizes="(min-width: 640px) 176px, 154px"
-        className="object-cover"
+        className="object-contain"
       />
     </div>
   );
@@ -278,7 +278,7 @@ function RouteTimeline() {
   ];
 
   return (
-    <div data-route-timeline className="max-w-[610px]">
+    <div data-route-timeline className="hidden max-w-[610px] xl:block">
       <div className="relative mb-4 h-4">
         <div className="absolute left-0 right-0 top-1/2 h-px bg-champagne" />
         {stops.map((stop, index) => (
@@ -289,7 +289,7 @@ function RouteTimeline() {
           />
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-4 text-xs uppercase text-white/84 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="grid grid-cols-6 gap-4 text-xs uppercase text-white/84">
         {stops.map(([label, value]) => (
           <div key={`${label}-${value}`}>
             <p className="text-champagne">{label}</p>
