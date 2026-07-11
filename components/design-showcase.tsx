@@ -245,7 +245,7 @@ function BookingPanel() {
         <BookingField icon={<CalendarBlank size={28} />} label="Date" value="Sat, May 24" />
         <BookingField icon={<MapPin size={28} />} label="Pick up" value="Mandalay Bay" />
         <MagneticButton
-          href="tel:+17025551947"
+          href="tel:+17024709700"
           className="w-full rounded-full bg-champagne px-7 text-ink hover:bg-[#f0c56b] md:col-span-3 min-[1450px]:col-span-1"
         >
           Check availability
