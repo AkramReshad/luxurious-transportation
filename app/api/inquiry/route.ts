@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 const required = ["name", "email", "phone", "eventType", "date", "passengers", "pickup", "destination"];
+const deliveryTimeoutMs = 10_000;
 const limits: Record<string, number> = {
   name: 100,
   email: 254,
@@ -46,7 +47,8 @@ export async function POST(request: Request) {
     method: "POST",
     headers,
     body: JSON.stringify(body),
-    cache: "no-store"
+    cache: "no-store",
+    signal: AbortSignal.timeout(deliveryTimeoutMs)
   }).catch(() => null);
 
   if (!response?.ok) {

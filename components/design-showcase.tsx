@@ -3,12 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { MouseEvent, ReactNode } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import {
   CalendarBlank,
   MapPin,
   Quotes,
-  ShieldCheck,
   UsersThree
 } from "@phosphor-icons/react";
 import { SiteHeader } from "@/components/site-header";
@@ -34,6 +33,7 @@ function MagneticButton({
 }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const reduceMotion = useReducedMotion();
   const springX = useSpring(x, { stiffness: 120, damping: 18 });
   const springY = useSpring(y, { stiffness: 120, damping: 18 });
   const rotate = useTransform(springX, [-18, 18], [-1.1, 1.1]);
@@ -52,9 +52,9 @@ function MagneticButton({
   return (
     <motion.a
       href={href}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      style={{ x: springX, y: springY, rotate }}
+      onMouseMove={reduceMotion ? undefined : handleMove}
+      onMouseLeave={reduceMotion ? undefined : handleLeave}
+      style={reduceMotion ? undefined : { x: springX, y: springY, rotate }}
       className={`inline-flex min-h-12 items-center justify-center gap-3 whitespace-nowrap px-6 py-3 text-sm font-semibold transition duration-300 active:scale-[0.98] ${className}`}
     >
       {children}
@@ -111,10 +111,8 @@ function StripNoir() {
               <div className="hidden justify-end lg:flex">
                 <div>
                   <BookingPanel />
-                  <div className="mt-4 flex justify-start gap-3 text-sm text-white/80 min-[1450px]:justify-center">
-                    <ShieldCheck size={17} weight="bold" />
-                    <span>Secure booking.</span>
-                    <span>No hidden fees.</span>
+                  <div className="mt-4 text-sm text-white/80 min-[1450px]:text-center">
+                    Availability and pricing are confirmed by inquiry.
                   </div>
                 </div>
               </div>
@@ -151,9 +149,9 @@ function StripNoir() {
               />
             </div>
             {[
-              ["Private room feel", "Large seating, lighting, sound, and a bar-ready layout."],
-              ["Strip-first routing", "Generic placeholder for hotel pickups and planned stops."],
-              ["Handled details", "Drivers, schedule, fleet match, and arrival timing."]
+              ["Group options", "Explore vehicles listed for groups from 7 to 55 passengers."],
+              ["Your itinerary", "Share your pickup and planned stops when requesting availability."],
+              ["Confirm by inquiry", "We’ll confirm availability and pricing for your date and itinerary."]
             ].map(([title, copy]) => (
               <div key={title} className="border-t border-white/14 py-5">
                 <h3 className="text-2xl font-semibold">{title}</h3>
@@ -227,9 +225,9 @@ function BookingPanel() {
   return (
     <div id="booking" className="w-full max-w-[760px] rounded-[30px] border border-white/18 bg-white/13 p-4 shadow-glass backdrop-blur-2xl">
       <div className="grid gap-4 lg:grid-cols-3 min-[1450px]:grid-cols-[1fr_1fr_1.15fr_auto] min-[1450px]:items-center">
-        <BookingField icon={<UsersThree size={28} />} label="Group size" value="10-40 guests" />
-        <BookingField icon={<CalendarBlank size={28} />} label="Date" value="Sat, May 24" />
-        <BookingField icon={<MapPin size={28} />} label="Pick up" value="Mandalay Bay" />
+        <BookingField icon={<UsersThree size={28} />} label="Group size" value="Your group" />
+        <BookingField icon={<CalendarBlank size={28} />} label="Date" value="Your event date" />
+        <BookingField icon={<MapPin size={28} />} label="Pick up" value="Your pickup location" />
         <MagneticButton
           href="tel:+17024709700"
           className="w-full rounded-full bg-champagne px-7 text-ink hover:bg-[#f0c56b] lg:col-span-3 min-[1450px]:col-span-1"
