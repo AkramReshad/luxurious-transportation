@@ -27,7 +27,22 @@ export const vehicles: Vehicle[] = [
 ];
 
 export const services: Service[] = [
-  { slug: "nightclub-crawl", name: "Nightclub Crawl", eyebrow: "After dark", summary: "Keep the group together between the Strip’s late-night destinations.", description: "Build a nightclub itinerary around your group, pickup location, and schedule. We coordinate the transportation so the night moves as one experience.", image: "/generated/services/nightclub-crawl-hero.webp", imageAlt: "Evening guests approaching a black party bus outside a Las Vegas nightclub", benefits: ["Coordinated hotel pickup", "Multi-stop itinerary planning", "Vehicle matching for your group"], vehicleNames: ["Mercedes Sprinter", "F650 Party Bus", "Party Bus"] },
+  {
+    slug: "nightclub-crawl",
+    name: "Nightclub Crawl",
+    eyebrow: "Nightclub crawl transportation",
+    summary: "Party bus transportation, escorted club admission, and VIP seating for a Las Vegas night out.",
+    description: "The package includes party bus transportation, escorted nightclub admission with no wait or cover, VIP seating, and a complimentary mix of liquor, wine, beer, and water.",
+    image: "/generated/services/nightclub-crawl-hero.webp",
+    imageAlt: "Evening guests approaching a black party bus outside a Las Vegas nightclub",
+    benefits: [
+      "Party bus transportation",
+      "Escorted nightclub admission with no wait or cover",
+      "VIP seating",
+      "Complimentary mix of liquor, wine, beer, and water"
+    ],
+    vehicleNames: []
+  },
   { slug: "bachelor-and-bachelorette-parties", name: "Bachelor & Bachelorette Parties", eyebrow: "One last Las Vegas weekend", summary: "Private group transportation for the dinner, the Strip, and everything after.", description: "Keep the celebration together from the first pickup through the final stop. Tell us the group size and the shape of the night; we’ll help match the vehicle and timing.", image: "/generated/services/bachelor-bachelorette-hero.webp", imageAlt: "Friends walking toward a black executive van beneath a Las Vegas hotel entrance", benefits: ["One ride for the full group", "Flexible pickup and stop planning", "Direct availability support"], vehicleNames: ["Hummer Limo", "Mercedes Sprinter", "F750 Party Bus"] },
   { slug: "prom-transportation", name: "Prom Transportation", eyebrow: "A milestone arrival", summary: "A polished, coordinated ride for a memorable Las Vegas prom night.", description: "Plan transportation around photos, dinner, the event, and the return trip. We focus on clear timing and a vehicle suited to the size of the party.", image: "/generated/services/prom-hero.webp", imageAlt: "Prom party and guardians beside a black limousine at blue hour in Las Vegas", benefits: ["Planned pickup and return", "Group-size vehicle matching", "Clear itinerary coordination"], vehicleNames: ["Hummer Limo", "Mercedes Sprinter", "F650 Party Bus"] },
   { slug: "edc", name: "EDC Transportation", eyebrow: "Festival movement", summary: "Private group transportation planned around the EDC weekend.", description: "Festival traffic and late hours reward a clear transportation plan. Share your lodging, group size, dates, and preferred schedule for a tailored availability quote.", image: "/generated/services/edc-hero.webp", imageAlt: "Black group shuttle in the Nevada desert near distant event lights", benefits: ["Lodging-based pickup planning", "Capacity options for groups", "Schedule-focused coordination"], vehicleNames: ["Mercedes Sprinter", "International Party Bus", "Freightliner Party Bus"] },
